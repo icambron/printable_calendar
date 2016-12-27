@@ -1,0 +1,40 @@
+#!/usr/bin/env ruby
+
+require "bundler/setup"
+require "slop"
+require "printable_calendar"
+require 'active_support/core_ext/hash/slice'
+
+def load_config_file(file)
+  if File.exist?(file)
+    JSON.parse(File.read(file), symbolize_names: true)
+  else
+    abort("Couldn't find config file #{file}")
+  end
+end
+
+opts = Slop.parse do |o|
+  o.bool "-g", "--generate", "generate a token"
+  o.bool "-h", "--help", "print help"
+  o.string "-c", "--config", "use a JSON config file"
+  o.string "--client-id", "Google client id"
+  o.string "--client-secret", "Google client secret"
+  o.string "--refresh-token", "Google refresh token"
+  o.string "--period", "Time period to use"
+  o.string "--title", "Title for this calendar"
+  o.string "--starting-from", "Date to start showing. Defaults to today. YYYY-MM-DD"
+  o.array "--calendar-ids", "Google calendar IDs"
+end
+
+settings = opts[:config] ? load_config_file(opts[:config]) : {}
+settings = settings.merge(opts.to_hash.except(:generate, :config, :calendar_ids).compact)
+settings[:calendar_ids] = opts[:calendar_ids] unless opts[:calendar_ids].empty?
+settings[:starting_from] = settings[:starting_from] ? Date.iso8601(settings[:starting_from]) : nil
+
+printable = PrintableCalendar::PrintableCalendar.new(settings)
+
+case
+  when opts[:help] then puts opts
+  when opts[:generate] then printable.generate_auth
+  else printable.run
+end
