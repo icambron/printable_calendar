@@ -1,8 +1,10 @@
 # coding: utf-8
-require "erector"
+require "fortitude"
 
 module PrintableCalendar
-  class View < Erector::Widget
+  class View < Fortitude::Widget
+
+    doctype(:html5)
 
     def initialize(settings, starts, ends, data)
       @settings = settings
@@ -16,6 +18,7 @@ module PrintableCalendar
 
       html {
         head {
+          meta(charset: "UTF-8")
           title(title_text)
           style(bootstrap)
           style(overrides)
@@ -52,14 +55,17 @@ module PrintableCalendar
 
     def overrides
       <<-eos
-      tr {padding-bottom: 25px;}
-      tr:nth-child(odd) { background-color: #eceeef}
+      tr {padding-bottom: 35px;}
+      tr:nth-child(odd) {
+        background-color: #eceeef !important;
+        -webkit-print-color-adjust: exact !important;
+      }
       tr:nth-child(odd) td[rowspan]{
-          background-color: white !important;
+        background-color: white !important;
+        -webkit-print-color-adjust: exact !important;
       }
       eos
     end
-
 
     def title_text
       t = @settings[:title] || "Calendar"
