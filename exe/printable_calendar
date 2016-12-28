@@ -21,7 +21,7 @@ opts = Slop.parse do |o|
   o.string "--client-id", "Google client id"
   o.string "--client-secret", "Google client secret"
   o.string "--refresh-token", "Google refresh token"
-  o.string "-p", "--period", "Time period to use. Accepts #{PrintableCalendar::Range.supported_periods.join(", ")}"
+  o.string "-p", "--period", "Time period to use. Accepts #{PrintableCalendar::Range.supported_periods.join(", ")}. Defaults to work_week"
   o.string "--title", "Title for this calendar"
   o.string "--starting-from", "Date to anchor on. Defaults to today. Format as YYYY-MM-DD"
   o.array "--calendar-ids", "Google calendar IDs"

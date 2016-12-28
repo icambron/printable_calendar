@@ -32,7 +32,7 @@ usage: printable_calendar [options]
     --client-id      Google client id
     --client-secret  Google client secret
     --refresh-token  Google refresh token
-    -p, --period     Time period to use. Accepts work_week, american_week, intl_week, month, day
+    -p, --period     Time period to use. Accepts work_week, american_week, intl_week, month, day. Defaults to work_week
     --title          Title for this calendar
     --starting-from  Date to anchor on. Defaults to today. Format as YYYY-MM-DD
     --calendar-ids   Google calendar IDs
