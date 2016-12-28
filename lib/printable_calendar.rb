@@ -17,7 +17,7 @@ module PrintableCalendar
     end
 
     def run
-      starts, ends = Range.compute(@settings[:period] || "workweek", @settings[:starting_from] || Date.today)
+      starts, ends = Range.compute(@settings[:period] || "work_week", @settings[:starting_from] || Date.today)
       data = Calendar.new(client_id, client_secret).fetch(starts: starts, ends: ends, refresh_token: refresh_token, calendar_ids: calendar_ids)
       html = View.new(@settings, starts, ends, data).to_html
       tempfile = write_tempfile(html)

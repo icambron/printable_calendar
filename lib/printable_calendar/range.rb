@@ -7,7 +7,7 @@ module PrintableCalendar
 
     def self.range_map
       {
-        workweek: ->(t){[t.beginning_of_week(:monday), t.beginning_of_week(:monday) + 4]},
+        work_week: ->(t){[t.beginning_of_week(:monday), t.beginning_of_week(:monday) + 4]},
         american_week: ->(t){[t.beginning_of_week(:sunday), t.end_of_week(:sunday)]},
         intl_week: ->(t){[t.beginning_of_week(:monday), t.end_of_week(:sunday)]},
         month: ->(t){[t.beginning_of_month, t.end_of_month]},
