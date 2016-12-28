@@ -23,7 +23,7 @@ opts = Slop.parse do |o|
   o.string "--refresh-token", "Google refresh token"
   o.string "--period", "time period to use"
   o.string "--title", "title for this calendar"
-  o.string "--starting-from", "date to start showing. Defaults to today. YYYY-MM-DD"
+  o.string "--starting-from", "date to anchor on. Defaults to today. Format as YYYY-MM-DD"
   o.array "--calendar-ids", "Google calendar IDs"
 end
 
