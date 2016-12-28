@@ -50,7 +50,7 @@ module PrintableCalendar
     end
 
     def bootstrap
-      File.read(File.expand_path("../../vendor/bootstrap.min.css", __FILE__))
+      File.read(File.expand_path("../../../vendor/bootstrap.min.css", __FILE__))
     end
 
     def overrides

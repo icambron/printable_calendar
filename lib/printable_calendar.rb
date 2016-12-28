@@ -1,9 +1,9 @@
 require "json"
 require "tempfile"
 require "launchy"
-require_relative "range"
-require_relative "calendar"
-require_relative "view"
+require_relative "printable_calendar/range"
+require_relative "printable_calendar/calendar"
+require_relative "printable_calendar/view"
 
 module PrintableCalendar
   class PrintableCalendar

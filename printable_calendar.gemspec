@@ -1,9 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require "printable_calendar/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "printable_calendar"
+  spec.version       = PrintableCalendar::VERSION
   spec.authors       = ["Isaac Cambron"]
   spec.email         = ["isaac@isaaccambron.com"]
 
@@ -16,16 +18,15 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
+  spec.executables << "printable_calendar"
+
   spec.add_dependency "google_calendar", "~> 0.6"
-  spec.add_dependency "fortitude"
+  spec.add_dependency "fortitude", "~> 0.9"
   spec.add_dependency "activesupport", "~> 5.0"
   spec.add_dependency "slop", "~> 4.4"
   spec.add_dependency "launchy", "~> 2.4"
 
   spec.add_development_dependency "bundler", "~> 1.11"
   spec.add_development_dependency "rake", "~> 10.0"
-
-  require "printable_calendar/version"
-  spec.version = PrintableCalendar::VERSION
 
 end

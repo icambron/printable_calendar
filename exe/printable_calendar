@@ -1,9 +1,9 @@
 #!/usr/bin/env ruby
-
 require "bundler/setup"
 require "slop"
-require "printable_calendar"
-require 'active_support/core_ext/hash/slice'
+require "active_support/core_ext/hash/slice"
+
+require_relative "../lib/printable_calendar"
 
 def load_config_file(file)
   if File.exist?(file)
@@ -16,13 +16,14 @@ end
 opts = Slop.parse do |o|
   o.bool "-g", "--generate", "generate a token"
   o.bool "-h", "--help", "print help"
+  o.bool "-v", "--version", "print version info"
   o.string "-c", "--config", "use a JSON config file"
   o.string "--client-id", "Google client id"
   o.string "--client-secret", "Google client secret"
   o.string "--refresh-token", "Google refresh token"
-  o.string "--period", "Time period to use"
-  o.string "--title", "Title for this calendar"
-  o.string "--starting-from", "Date to start showing. Defaults to today. YYYY-MM-DD"
+  o.string "--period", "time period to use"
+  o.string "--title", "title for this calendar"
+  o.string "--starting-from", "date to start showing. Defaults to today. YYYY-MM-DD"
   o.array "--calendar-ids", "Google calendar IDs"
 end
 
@@ -36,5 +37,6 @@ printable = PrintableCalendar::PrintableCalendar.new(settings)
 case
   when opts[:help] then puts opts
   when opts[:generate] then printable.generate_auth
+  when opts[:version] then puts PrintableCalendar::VERSION
   else printable.run
 end
