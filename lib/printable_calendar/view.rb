@@ -73,7 +73,9 @@ module PrintableCalendar
     end
 
     def format_time(date_time)
+      zone = Time.now.getlocal.zone
       date_time = DateTime.iso8601(date_time) if date_time.is_a?(String)
+      date_time = date_time.in_time_zone(zone)
       date_time.strftime("%I:%M%P")
     end
 

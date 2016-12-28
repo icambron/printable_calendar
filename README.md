@@ -27,13 +27,14 @@ There are a few other options. They're available in both the JSON file and as co
 usage: printable_calendar [options]
     -g, --generate   generate a token
     -h, --help       print help
+    -v, --version    print version info
     -c, --config     use a JSON config file
     --client-id      Google client id
     --client-secret  Google client secret
     --refresh-token  Google refresh token
-    --period         Time period to use
-    --title          Title for this calendar
-    --starting-from  Date to start showing. Defaults to today. YYYY-MM-DD
+    --period         time period to use
+    --title          title for this calendar
+    --starting-from  date to start showing. Defaults to today. YYYY-MM-DD
     --calendar-ids   Google calendar IDs
 ```
 
