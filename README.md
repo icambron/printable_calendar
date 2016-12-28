@@ -9,7 +9,7 @@ I got sick of Google Calendar's terrible print dialog and decided to code around
 ## Installation and Setup
 
 ```
-    $ gem install printable_calendar
+gem install printable_calendar
 ```
 
  0. Copy the sample-config.json file.
