@@ -25,16 +25,16 @@ There are a few other options. They're available in both the JSON file and as co
 
 ```
 usage: printable_calendar [options]
-    -g, --generate   generate a token
-    -h, --help       print help
-    -v, --version    print version info
-    -c, --config     use a JSON config file
+    -g, --generate   Generate a token
+    -h, --help       Print help
+    -v, --version    Print version info
+    -c, --config     Use a JSON config file
     --client-id      Google client id
     --client-secret  Google client secret
     --refresh-token  Google refresh token
-    --period         time period to use
-    --title          title for this calendar
-    --starting-from  date to anchor on. Defaults to today. Format as YYYY-MM-DD
+    -p, --period     Time period to use. Accepts workweek, american_week, intl_week, month, day
+    --title          Title for this calendar
+    --starting-from  Date to anchor on. Defaults to today. Format as YYYY-MM-DD
     --calendar-ids   Google calendar IDs
 ```
 
