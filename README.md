@@ -1,4 +1,4 @@
-# PrintableCalendar
+# Printable Calendar
 
 Generate printable agendas from Google Calendars.
 
