@@ -2,7 +2,7 @@
 
 Generate printable agendas from Google Calendars.
 
-I got sick of Google Calendar's terrible print dialog and decided to code around it. This command line utility will download a week, work week, or month of agenda items and render them in your default browser so you can print them easily.
+I got sick of Google Calendar's terrible print dialog and decided to code around it. This command line utility will download a day, week, work week, or month of agenda items and render them in your default browser so you can print them easily.
 
 ![Screenshot](docs/screenshot.png)
 
@@ -34,7 +34,7 @@ usage: printable_calendar [options]
     --refresh-token  Google refresh token
     -p, --period     Time period to use. Accepts work_week, american_week, intl_week, month, day. Defaults to work_week
     --title          Title for this calendar
-    --starting-from  Date to anchor on. Defaults to today. Format as YYYY-MM-DD
+    -s, --starting-from  Date to anchor on. Defaults to today. Format as YYYY-MM-DD
     --calendar-ids   Google calendar IDs
 ```
 
